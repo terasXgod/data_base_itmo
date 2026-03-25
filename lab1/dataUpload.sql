@@ -19,11 +19,11 @@ INSERT INTO oasis (Desert_id, square, name, fertility) VALUES (4, 110.0, 'Homo s
 
 --TRUNCATE TABLE ruler RESTART IDENTITY CASCADE;
 
-INSERT INTO ruler (iq, birthDate, name) VALUES (123, '2023-10-25', 'Vasiliy');
-INSERT INTO ruler (iq, birthDate, deathDate, name) VALUES (1123, '2023-10-25', '2024-10-25', 'Sergay');
-INSERT INTO ruler (iq, birthDate, name) VALUES (-11, '1077-10-25', 'Yaropolk');
-INSERT INTO ruler (iq, birthDate, name) VALUES (52, '1952-05-02', 'Friendly Thug');
-INSERT INTO ruler (iq, birthDate, deathDate, name) VALUES (1337, '123-01-01', '123-1-2', 'Bomzh');
+INSERT INTO ruler (iq) VALUES (123);
+INSERT INTO ruler (iq) VALUES (12);
+INSERT INTO ruler (iq) VALUES (113);
+INSERT INTO ruler (iq) VALUES (122);
+INSERT INTO ruler (iq) VALUES (155);
 
 ---
 
@@ -44,39 +44,44 @@ VALUES (7, 2, 'tales of war', 'Sparta', 55.5, 'Democracy');
 
 ---
 
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate) 
-VALUES (1, 56.1, 52.52, '\\x48656C6C6F', TRUE, '2021-03-12');
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate, deathDate) 
-VALUES (2, 75.0, 100.00, '\xDEADBEEF', FALSE, '1990-01-01', '2020-06-30');
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate) 
-VALUES (3, 60.5, 250.75, '\xCAFEBABE', TRUE, '2000-12-15');
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate, deathDate) 
-VALUES (4, 82.3, 10.00, '\x00FF00', FALSE, '1975-07-07', '2025-01-01');
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate) 
-VALUES (5, 48.2, 5000.50, '\x123456', TRUE, '2010-03-03');
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate, deathDate) 
-VALUES (6, 90.0, 0.00, '\xABCDEF', FALSE, '1950-05-05', '2000-05-05');
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate) 
-VALUES (7, 68.4, 300.30, '\xBEEF', TRUE, '1995-11-11');
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate, deathDate) 
-VALUES (1, 120.0, 10000.00, '\xFACE', FALSE, '1930-01-01', '1980-12-31');
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate) 
-VALUES (2, 55.5, 150.15, '\xC0FFEE', TRUE, '2005-09-09');
-INSERT INTO human (civilization_id, weight, money, dna, isAlive, birthDate, deathDate) 
-VALUES (3, 77.7, 777.77, '\xBADA55', FALSE, '1988-08-08', '2018-08-08');
+INSERT INTO human (civilization_id, weight,  dna, isAlive, birthDate) 
+VALUES (1, 56.1, '\\x48656C6C6F', TRUE, '2021-03-12');
+INSERT INTO human (civilization_id, weight, dna, isAlive, birthDate, deathDate) 
+VALUES (2, 75.0, '\xDEADBEEF', FALSE, '1990-01-01', '2020-06-30');
+INSERT INTO human (civilization_id, weight, dna, isAlive, birthDate) 
+VALUES (3, 60.5, '\xCAFEBABE', TRUE, '2000-12-15');
+INSERT INTO human (civilization_id, weight, dna, isAlive, birthDate, deathDate) 
+VALUES (4, 82.3, '\x00FF00', FALSE, '1975-07-07', '2025-01-01');
+INSERT INTO human (civilization_id, weight, dna, isAlive, birthDate) 
+VALUES (5, 48.2, '\x123456', TRUE, '2010-03-03');
+INSERT INTO human (civilization_id, weight, dna, isAlive, birthDate, deathDate) 
+VALUES (6, 90.0, '\xABCDEF', FALSE, '1950-05-05', '2000-05-05');
+INSERT INTO human (civilization_id, weight, dna, isAlive, birthDate) 
+VALUES (7, 68.4, '\xBEEF', TRUE, '1995-11-11');
+INSERT INTO human (civilization_id, weight, dna, isAlive, birthDate, deathDate) 
+VALUES (1, 120.0, '\xFACE', FALSE, '1930-01-01', '1980-12-31');
+INSERT INTO human (civilization_id, weight, dna, isAlive, birthDate) 
+VALUES (2, 55.5, '\xC0FFEE', TRUE, '2005-09-09');
+INSERT INTO human (civilization_id, weight, dna, isAlive, birthDate, deathDate) 
+VALUES (3, 77.7, '\xBADA55', FALSE, '1988-08-08', '2018-08-08');
 
+UPDATE ruler SET human_id = 1 WHERE id = 1;
+UPDATE ruler SET human_id = 2 WHERE id = 2;
+UPDATE ruler SET human_id = 3 WHERE id = 3;
+UPDATE ruler SET human_id = 4 WHERE id = 4;
+UPDATE ruler SET human_id = 5 WHERE id = 5;
 ---
 
-INSERT INTO commander (iq, birthDate) VALUES (123, '1934-12-14');
-INSERT INTO commander (iq, birthDate, deathDate) VALUES (145, '1950-01-01', '2001-05-05');
-INSERT INTO commander (iq, birthDate) VALUES (160, '1980-06-06');
-INSERT INTO commander (iq, birthDate, deathDate) VALUES (110, '1970-07-07', '2020-07-07');
-INSERT INTO commander (iq, birthDate) VALUES (130, '1990-09-09');
-INSERT INTO commander (iq, birthDate, deathDate) VALUES (140, '1965-05-05', '2015-12-12');
-INSERT INTO commander (iq, birthDate) VALUES (155, '2000-02-02');
-INSERT INTO commander (iq, birthDate, deathDate) VALUES (120, '1945-04-04', '1995-08-08');
-INSERT INTO commander (iq, birthDate) VALUES (170, '2010-10-10');
-INSERT INTO commander (iq, birthDate, deathDate) VALUES (135, '1985-11-11', '2040-01-01');
+INSERT INTO commander (iq, human_id) VALUES (123, 1);
+INSERT INTO commander (iq, human_id) VALUES (145, 2);
+INSERT INTO commander (iq, human_id) VALUES (160, 3);
+INSERT INTO commander (iq, human_id) VALUES (110, 4);
+INSERT INTO commander (iq, human_id) VALUES (130, 5);
+INSERT INTO commander (iq, human_id) VALUES (140, 6);
+INSERT INTO commander (iq, human_id) VALUES (155, 7);
+INSERT INTO commander (iq, human_id) VALUES (120, 8);
+INSERT INTO commander (iq, human_id) VALUES (170, 9);
+INSERT INTO commander (iq, human_id) VALUES (135, 10);
 
 ---
 
